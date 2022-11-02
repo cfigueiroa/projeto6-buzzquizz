@@ -36,15 +36,28 @@ main {
 
 /* page1 */
 .page1 {
+  padding-top: 77px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.page1 .top {
+  margin: 0 auto;
+  width: 1051px;
+}
+
+.page1 .added {
+  width: 1051px;
+}
+
 .page1 .empty {
   width: 1051px;
   height: 181px;
+}
+
+.page1 .empty {
   border: 1px dashed #d5d5d5;
   border-radius: 5px;
 }
@@ -77,8 +90,58 @@ main {
   border-radius: 50px;
 }
 
+.page1 .bot {
+  margin: 0 auto;
+  margin-top: 48px;
+  width: 1051px;
+  /* height: 409px; */
+}
 
-/* page2 */
+.page1 h2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 15px;
+}
+
+.card {
+  width: 340px;
+  height: 181px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.5) 64.58%,
+      #000000 100%
+    ),
+    url(../img/sloth.png);
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.card p {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  font-size: 19px;
+  line-height: 22px;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  gap: 17px;
+  margin-bottom: 12px;
+}
+
 .page2 {
   height: 100%;
 }
@@ -155,6 +218,3 @@ main {
 .hidden {
   display: none;
 }
-
-
-/* page3 */
