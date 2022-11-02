@@ -1,5 +1,6 @@
 const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 let currentId = 0;
+let currentObj = {};
 //page1
 
 function loadQuizzes() {
@@ -35,21 +36,34 @@ function loadQuizzes() {
 function loadQuiz(id) {
     console.log(id);
     currentId = id;
+    if (id !== 0) {
+        axios.get(api + id)
+            .then(function (response) {
+                currentObj = response.data;
+                console.log(currentObj);
+                const page1 = document.querySelector('.page1');
+                page1.classList.add('hidden');
+                const page2 = document.querySelector('.page2');
+                page2.classList.remove('hidden');
+            })
+            .catch(function (error) { console.log(error); });
+    }
+
 }
 
 loadQuizzes();
 
 //page2
-function selecionarCaixa(seletor){
+function selecionarCaixa(seletor) {
     const caixaClicada = seletor.parentNode;
     const p = caixaClicada.querySelector("p")
     caixaClicada.classList.add("clicado")
     p.classList.add("acertou")
 
     const caixas = document.querySelectorAll(".caixa")
-    for (let i = 0; i < caixas.length; i++){
-        if(caixas[i].classList.contains("clicado") === false){
-            caixas[i].innerHTML+= `
+    for (let i = 0; i < caixas.length; i++) {
+        if (caixas[i].classList.contains("clicado") === false) {
+            caixas[i].innerHTML += `
             <div class="esconder"></div>
             `
         }
