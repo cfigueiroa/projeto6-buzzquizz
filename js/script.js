@@ -1,4 +1,5 @@
 const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
+let currentId = 0;
 //page1
 
 function loadQuizzes() {
@@ -20,12 +21,20 @@ function loadQuizzes() {
                     #000000 100%
                   ),url(${quizzes[i].image})`;
                 cards.appendChild(newDiv);
+                newDiv.addEventListener('click', function () {
+                    loadQuiz(quizzes[i].id);
+                });
             }
 
         })
         .catch(function (error) {
             console.log(error);
         });
+}
+
+function loadQuiz(id) {
+    console.log(id);
+    currentId = id;
 }
 
 loadQuizzes();
