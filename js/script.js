@@ -7,9 +7,9 @@ let currentId = 0;
 let currentObj = {};
 //page1
 
-for (let i = 0; i < 1; i++) {
-    axios.post(api, quizzTemplateFull);
-}
+// for (let i = 0; i < 1; i++) {
+//     axios.post(api, quizzTemplateFull);
+// }
 
 function loadQuizzes() {
     axios.get(api)
@@ -29,6 +29,7 @@ function loadQuizzes() {
                     rgba(0, 0, 0, 0.5) 64.58%,
                     #000000 100%
                   ),url(${quizzes[i].image})`;
+                newDiv.style.backgroundSize = '100% 100%';
                 cards.appendChild(newDiv);
                 newDiv.addEventListener('click', function () {
                     loadQuiz(quizzes[i].id);
