@@ -8,7 +8,7 @@ let currentObj = {};
 //page1
 
 // for (let i = 0; i < 50; i++) {
-//     axios.post(api, quizzTemplate);
+//     axios.post(api, quizzTemplateFull);
 // }
 
 function loadQuizzes() {
@@ -89,12 +89,12 @@ function selecionarCaixa(seletor) {
     }
 }
 
-function criarQuizz(){
+function criarQuizz() {
     // Alterando o Fundo
     const fundo = document.querySelector(".fundo")
     let title = currentObj.title
     let back = currentObj.image
-    fundo.style.backgroundImage =`url("${back}")`;
+    fundo.style.backgroundImage = `url("${back}")`;
     fundo.innerHTML = title;
     back = "";
     title = "";
@@ -102,9 +102,9 @@ function criarQuizz(){
 
     const container = document.querySelector(".container")
     container.innerHTML = ""
-    
-    
-    for(let i = 0; i < currentObj.questions.length; i++){
+
+
+    for (let i = 0; i < currentObj.questions.length; i++) {
         container.innerHTML += `
         <div class="quizz-caixa" id="caixa${i}">
             <div id="titulo${i}" class="titulo-quizz">${currentObj.questions[i].title}</div>
