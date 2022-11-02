@@ -35,6 +35,12 @@ function loadQuizzes() {
 function loadQuiz(id) {
     console.log(id);
     currentId = id;
+    if (id !== 0) {
+        const page1 = document.querySelector('.page1');
+        page1.classList.add('hidden');
+        const page2 = document.querySelector('.page2');
+        page2.classList.remove('hidden');
+    }
 }
 
 loadQuizzes();
