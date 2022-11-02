@@ -1,4 +1,4 @@
-const api = 'https://mock-api.driven.com.br/api/v3/buzzquizz/quizzes/';
+const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 // const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 const page1 = document.querySelector('.page1');
 const page2 = document.querySelector('.page2');
@@ -7,9 +7,9 @@ let currentId = 0;
 let currentObj = {};
 //page1
 
-// for (let i = 0; i < 50; i++) {
-//     axios.post(api, quizzTemplateFull);
-// }
+for (let i = 0; i < 1; i++) {
+    axios.post(api, quizzTemplateFull);
+}
 
 function loadQuizzes() {
     axios.get(api)
