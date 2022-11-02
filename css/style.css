@@ -41,9 +41,21 @@ main {
   align-items: center;
 }
 
+.page1 .top {
+  margin: 0 auto;
+  width: 1051px;
+}
+
+.page1 .added {
+  width: 1051px;
+}
+
 .page1 .empty {
   width: 1051px;
   height: 181px;
+}
+
+.page1 .empty {
   border: 1px dashed #d5d5d5;
   border-radius: 5px;
 }
@@ -80,13 +92,13 @@ main {
   margin: 0 auto;
   margin-top: 48px;
   width: 1051px;
-  height: 409px;
+  /* height: 409px; */
 }
 
-.page1 .bot h2 {
+.page1 h2 {
   font-weight: 700;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 30px;
   color: #000000;
 }
 
@@ -120,6 +132,12 @@ main {
   color: #ffffff;
   align-items: center;
   justify-content: center;
+}
+
+.title {
+  display: flex;
+  gap: 17px;
+  margin-bottom: 12px;
 }
 
 .page2 {
