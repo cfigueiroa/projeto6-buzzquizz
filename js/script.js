@@ -1,4 +1,4 @@
-const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
+const api = 'https://mock-api.driven.com.br/api/v3/buzzquizz/quizzes/';
 let currentId = 0;
 let currentObj = {};
 //page1
@@ -45,6 +45,7 @@ function loadQuiz(id) {
                 page1.classList.add('hidden');
                 const page2 = document.querySelector('.page2');
                 page2.classList.remove('hidden');
+                criarQuizz()
             })
             .catch(function (error) { console.log(error); });
     }
@@ -72,4 +73,50 @@ function selecionarCaixa(seletor) {
         }
     }
 }
+
+function criarQuizz(){
+    // Alterando o Fundo
+    const fundo = document.querySelector(".fundo")
+    let title = currentObj.title
+    let back = currentObj.image
+    fundo.style.backgroundImage =`url("${back}")`;
+    fundo.innerHTML = title;
+    back = "";
+    title = "";
+
+
+    const container = document.querySelector(".container")
+    container.innerHTML = ""
+    
+    
+    for(let i = 0; i < currentObj.questions.length; i++){
+        container.innerHTML += `
+        <div class="quizz-caixa">
+            <div id= "titulo${i}" class="titulo-quizz">${currentObj.questions[i].title}</div>
+            <div class="conteudo-quizz">
+              <div class="caixa">
+                <div onclick="selecionarCaixa(this)" class="img"></div>
+                <p>gatinho</p>
+              </div>
+              <div class="caixa">
+                <div onclick="selecionarCaixa(this)" class="img"></div>
+                <p>gatinho</p>
+              </div>
+              <div class="caixa">
+                <div onclick="selecionarCaixa(this)" class="img"></div>
+                <p>gatinho</p>
+              </div>
+              <div class="caixa">
+                <div onclick="selecionarCaixa(this)" class="img"></div>
+                <p>gatinho</p>
+              </div>
+            </div>
+          </div>
+        `
+        let titulo = document.querySelector(`#titulo${i}`)
+        titulo.style.backgroundColor = currentObj.questions[i].color
+        titulo = ""
+    }
+}
+
 //page3
