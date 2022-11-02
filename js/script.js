@@ -1,4 +1,4 @@
-const api = 'https://mock-api.driven.com.br/api/v3/buzzquizz/quizzes/';
+const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 // const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 const page1 = document.querySelector('.page1');
 const page2 = document.querySelector('.page2');
@@ -103,31 +103,37 @@ function criarQuizz(){
     const container = document.querySelector(".container")
     container.innerHTML = ""
     
-    
     for(let i = 0; i < currentObj.questions.length; i++){
         container.innerHTML += `
         <div class="quizz-caixa" id="caixa${i}">
             <div id="titulo${i}" class="titulo-quizz">${currentObj.questions[i].title}</div>
             <div class="conteudo-quizz">
               <div class="caixa">
-                <div onclick="selecionarCaixa(this)" class="img"></div>
-                <p>gatinho</p>
+                <div onclick="selecionarCaixa(this)" class="img" id="img${0}"></div>
+                <p id="paragrafo${0}">gatinho</p>
               </div>
               <div class="caixa">
-                <div onclick="selecionarCaixa(this)" class="img"></div>
-                <p>gatinho</p>
+                <div onclick="selecionarCaixa(this)" class="img" id="img${1}"></div>
+                <p id="paragrafo${1}">gatinho</p>
               </div>
               <div class="caixa">
-                <div onclick="selecionarCaixa(this)" class="img"></div>
-                <p>gatinho</p>
+                <div onclick="selecionarCaixa(this)" class="img" id="img${2}"></div>
+                <p id="paragrafo${2}">gatinho</p>
               </div>
               <div class="caixa">
-                <div onclick="selecionarCaixa(this)" class="img"></div>
-                <p>gatinho</p>
+                <div onclick="selecionarCaixa(this)" class="img" id="img${3}"></div>
+                <p id="paragrafo${3}">gatinho</p>
               </div>
             </div>
           </div>
         `
+        for (let a = 0; a < 4; a++){
+            let imagem = document.querySelector(`#caixa${i} #img${a}`)
+            imagem.style.backgroundImage = `url("${currentObj.questions[i].answers[a].image}")`
+            let paragrafo = document.querySelector(`#caixa${i} #paragrafo${a}`)
+            paragrafo.innerHTML = `${currentObj.questions[i].answers[a].text}`
+        }
+
         let titulo = document.querySelector(`#titulo${i}`)
         titulo.style.backgroundColor = currentObj.questions[i].color
         titulo = ""
