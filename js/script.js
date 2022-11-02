@@ -95,6 +95,7 @@ function criarQuizz() {
     let title = currentObj.title
     let back = currentObj.image
     fundo.style.backgroundImage = `url("${back}")`;
+    fundo.style.backgroundSize = 'cover';
     fundo.innerHTML = title;
     back = "";
     title = "";
@@ -130,6 +131,7 @@ function criarQuizz() {
         for (let a = 0; a < 4; a++){
             let imagem = document.querySelector(`#caixa${i} #img${a}`)
             imagem.style.backgroundImage = `url("${currentObj.questions[i].answers[a].image}")`
+            imagem.style.backgroundSize = '100% 100%';
             let paragrafo = document.querySelector(`#caixa${i} #paragrafo${a}`)
             paragrafo.innerHTML = `${currentObj.questions[i].answers[a].text}`
         }
