@@ -68,13 +68,14 @@ loadQuizzes();
 
 
 //page2
+let contador = 0;
 function selecionarCaixa(seletor) {
     const caixaClicada = seletor.parentNode;
     const p = caixaClicada.querySelector("p")
     caixaClicada.classList.add("clicado")
     p.classList.add("acertou")
 
-    const caixas = document.querySelectorAll(".caixa")
+    const caixas = document.querySelectorAll(`#caixa${contador} .caixa`)
     for (let i = 0; i < caixas.length; i++) {
         if (caixas[i].classList.contains("clicado") === false) {
             caixas[i].innerHTML += `
@@ -83,6 +84,7 @@ function selecionarCaixa(seletor) {
         }
         else {
             seletor.removeAttribute("onclick")
+            contador++
         }
     }
 }
@@ -104,8 +106,8 @@ function criarQuizz(){
     
     for(let i = 0; i < currentObj.questions.length; i++){
         container.innerHTML += `
-        <div class="quizz-caixa">
-            <div id= "titulo${i}" class="titulo-quizz">${currentObj.questions[i].title}</div>
+        <div class="quizz-caixa" id="caixa${i}">
+            <div id="titulo${i}" class="titulo-quizz">${currentObj.questions[i].title}</div>
             <div class="conteudo-quizz">
               <div class="caixa">
                 <div onclick="selecionarCaixa(this)" class="img"></div>
