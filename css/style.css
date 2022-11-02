@@ -34,6 +34,7 @@ main {
 }
 
 .page1 {
+  padding-top: 77px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,6 +74,52 @@ main {
   background-color: #fafafa;
   border: 1px dashed #ec362d;
   border-radius: 50px;
+}
+
+.page1 .bot {
+  margin: 0 auto;
+  margin-top: 48px;
+  width: 1051px;
+  height: 409px;
+}
+
+.page1 .bot h2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 15px;
+}
+
+.card {
+  width: 340px;
+  height: 181px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.5) 64.58%,
+      #000000 100%
+    ),
+    url(../img/sloth.png);
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.card p {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  font-size: 19px;
+  line-height: 22px;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
 }
 
 .page2 {
@@ -151,4 +198,3 @@ main {
 .hidden {
   display: none;
 }
-
