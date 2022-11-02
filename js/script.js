@@ -1,7 +1,15 @@
 const api = 'https://mock-api.driven.com.br/api/v3/buzzquizz/quizzes/';
+// const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
+const page1 = document.querySelector('.page1');
+const page2 = document.querySelector('.page2');
+const page3 = document.querySelector('.page3');
 let currentId = 0;
 let currentObj = {};
 //page1
+
+// for (let i = 0; i < 50; i++) {
+//     axios.post(api, quizzTemplate);
+// }
 
 function loadQuizzes() {
     axios.get(api)
@@ -41,9 +49,7 @@ function loadQuiz(id) {
             .then(function (response) {
                 currentObj = response.data;
                 console.log(currentObj);
-                const page1 = document.querySelector('.page1');
                 page1.classList.add('hidden');
-                const page2 = document.querySelector('.page2');
                 page2.classList.remove('hidden');
                 criarQuizz()
             })
@@ -52,7 +58,14 @@ function loadQuiz(id) {
 
 }
 
+function createQuizz(ele) {
+    page1.classList.add('hidden');
+    page3.classList.remove('hidden');
+}
+
 loadQuizzes();
+
+
 
 //page2
 function selecionarCaixa(seletor) {

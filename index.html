@@ -17,7 +17,7 @@
           <div class="added hidden">
             <div class="title">
               <h2>Seus Quizzes</h2>
-              <img src="img/add-btn.png" alt="" />
+              <img onclick="createQuizz(this)" src="img/add-btn.png" alt="" />
             </div>
             <div class="cards">
               <div class="card">
@@ -30,7 +30,7 @@
           </div>
           <div class="empty">
             <p>Você não criou nenhum quizz ainda :(</p>
-            <button>Criar Quizz</button>
+            <button onclick="createQuizz(this)">Criar Quizz</button>
           </div>
         </div>
         <div class="bot">
@@ -88,6 +88,7 @@
       <div class="page3 hidden"></div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/quizzTemplates.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
