@@ -255,12 +255,30 @@ function buildPage34() {
         .then(function (response) {
             finalResponse = response;
             finalObj = response.data;
+            page34.innerHTML = "";
+            page34.innerHTML = `
+            <h2>Seu quizz está pronto!</h2>
+            <h3>${finalObj.title}</h3>
+            <button onClick="loadQuiz2(${finalObj.id})">Acessar Quizz</button><br>
+            <button onClick="window.location.href=window.location.href">Voltar pra home</button>
+            `;
             changePage(page33, page34);
         })
         .catch(function (error) {
             console.log(error);
         });
-    // O quão Potterhead é você?
-    // Acessar Quizz
-    // Voltar pra home
+}
+
+function loadQuiz2(id) {
+    currentId = id;
+    if (id !== 0) {
+        axios.get(api + id)
+            .then(function (response) {
+                currentObj = response.data;
+                changePage(page34, page2);
+                criarQuizz()
+            })
+            .catch(function (error) { console.log(error); });
+    }
+
 }
