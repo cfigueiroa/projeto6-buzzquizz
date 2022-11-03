@@ -17,7 +17,7 @@
           <div class="added hidden">
             <div class="title">
               <h2>Seus Quizzes</h2>
-              <img onclick="createQuizz(this)" src="img/add-btn.png" alt="" />
+              <img onclick="changePage(page1, page3)" src="img/add-btn.png" alt="" />
             </div>
             <div class="cards">
               <div class="card">
@@ -30,7 +30,7 @@
           </div>
           <div class="empty">
             <p>Você não criou nenhum quizz ainda :(</p>
-            <button onclick="createQuizz(this)">Criar Quizz</button>
+            <button onclick="changePage(page1, page3)">Criar Quizz</button>
           </div>
         </div>
         <div class="bot">
@@ -85,7 +85,54 @@
           </div>
         </div>
       </div>
-      <div class="page3 hidden"></div>
+      <div class="page3 hidden">
+        <div class="page31">
+          <h2>Comece pelo começo</h2>
+          <form action="" method="get" id="form31">
+          <input type="text" name="" id="title" placeholder="Título do seu quizz" minlength="20" maxlength="65" required><br>
+          <input type="url" name="" id="image" placeholder="URL da imagem do seu quizz" required><br>
+          <input type="number" name="" id="questions-qty" placeholder="Quantidade de perguntas do quizz" min="3" required><br>
+          <input type="number" name="" id="levels-qty" placeholder="Quantidade de níveis do quizz" min="2" required><br>
+          <button>Prosseguir pra criar perguntas</button>
+        </form>
+        </div>
+        <div class="page32 hidden">
+          <h2>Crie suas perguntas</h2>
+          Pergunta 1
+          Texto da pergunta
+          Cor de fundo da pergunta
+          Resposta correta
+          Resposta correta
+          URL da imagem
+          Respostas incorretas
+          Resposta incorreta 1
+          URL da imagem 1
+          Resposta incorreta 2
+          URL da imagem 2
+          Resposta incorreta 3
+          URL da imagem 3
+          Pergunta 2
+          Pergunta 3
+          Prosseguir pra criar níveis
+        </div>
+        <div class="page33 hidden">
+          <h2>Agora, decida os níveis!</h2>
+          Nível 1
+          Título do nível
+          % de acerto mínima
+          URL da imagem do nível
+          Descrição do nível
+          Nível 2
+          Nível 3
+          Finalizar Quizz
+        </div>
+        <div class="page34 hidden">
+          Seu quizz está pronto!
+          O quão Potterhead é você?
+          Acessar Quizz
+          Voltar pra home
+        </div>
+      </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/quizzTemplates.js"></script>
