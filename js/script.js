@@ -104,12 +104,21 @@ function criarQuizz() {
         `
         let caixas = document.querySelector(`#caixa${i} .conteudo-quizz`);
         for (let j = 0; j < currentObj.questions[i].answers.length; j++) {
-            caixas.innerHTML += `
-            <div class="caixa">
+            if (currentObj.questions[i].answers[j].isCorrectAnswer) {
+                caixas.innerHTML += `
+                <div class="caixa">
+                <div onclick="selecionarCaixa(this)" class="img correct" id="img${j}"></div>
+                <p id="paragrafo${j}">gatinho</p>
+                </div>
+                `
+            } else {
+                caixas.innerHTML += `
+                <div class="caixa">
                 <div onclick="selecionarCaixa(this)" class="img" id="img${j}"></div>
                 <p id="paragrafo${j}">gatinho</p>
-            </div>
-        `
+                </div>
+                `
+            }
             let imagem = document.querySelector(`#caixa${i} #img${j}`)
             imagem.style.backgroundImage = `url("${currentObj.questions[i].answers[j].image}")`
             imagem.style.backgroundSize = '100% 100%';
