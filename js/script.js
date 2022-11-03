@@ -105,13 +105,13 @@ function criarQuizz() {
           </div>
         `
         let caixas = document.querySelector(`#caixa${i} .conteudo-quizz`);
-        for(let j = 0; j < currentObj.questions[i].answers.length; j++){
-            caixas.innerHTML+= `
+        for (let j = 0; j < currentObj.questions[i].answers.length; j++) {
+            caixas.innerHTML += `
             <div class="caixa">
                 <div onclick="selecionarCaixa(this)" class="img" id="img${j}"></div>
                 <p id="paragrafo${j}">gatinho</p>
             </div>
-        ` 
+        `
             let imagem = document.querySelector(`#caixa${i} #img${j}`)
             imagem.style.backgroundImage = `url("${currentObj.questions[i].answers[j].image}")`
             imagem.style.backgroundSize = '100% 100%';
@@ -135,17 +135,17 @@ let image = document.getElementById("image");
 let questionsQty = document.getElementById("questions-qty");
 let levelsQty = document.getElementById("levels-qty");
 
-const form = document.getElementById('form31');
-form.addEventListener('submit', logSubmit);
+const form31 = document.getElementById('form31');
+form31.addEventListener('submit', logSubmit31);
 
 
-function logSubmit(event) {
+function logSubmit31(event) {
     obj = { title: "", image: "", questions: [], levels: [] }
     //build obj
     obj.title = event.srcElement[0].value
     obj.image = event.srcElement[1].value
     for (let i = 0; i < event.srcElement[2].value; i++) {
-        obj.questions.push({ title: "", color: "", image: "", answers: [] })
+        obj.questions.push({ title: "", color: "", answers: [] })
     }
     for (let i = 0; i < event.srcElement[3].value; i++) {
         obj.levels.push({ title: "", text: "", image: "", minValue: 0, maxValue: 0 })
@@ -154,7 +154,9 @@ function logSubmit(event) {
     for (let i = 0; i <= 3; i++) {
         event.srcElement[i].value = ""
     }
+    buildForm32();
     changePage(page31, page32);
+    console.log(obj)
     event.preventDefault();
 }
 
@@ -165,5 +167,49 @@ function changePage(origin, dest) {
 
 //3.2
 
+
+const form32 = document.getElementById('form32');
+
+function buildForm32() {
+    for (let i = 0; i < obj.questions.length; i++) {
+        const pergunta = `
+        <h3>Pergunta ${i + 1}</h3>
+        <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" required><br>
+        <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" required><br>
+        <h3>Resposta correta</h3>
+        <input type="text" name="" id="q${i}ansText0" placeholder="Resposta correta" required><br>
+        <input type="url" name="" id="q${i}ansUrl0" placeholder="URL da imagem" required><br>
+        <h3>Respostas incorretas</h3>
+        <input type="text" name="" id="q${i}ansText1" placeholder="Resposta incorreta 1" required><br>
+        <input type="url" name="" id="q${i}ansUrl1" placeholder="URL da imagem 1" required><br>
+        <input type="text" name="" id="q${i}ansText2" placeholder="Resposta incorreta 2"><br>
+        <input type="url" name="" id="q${i}ansUrl2" placeholder="URL da imagem 2"><br>
+        <input type="text" name="" id="q${i}ansText3" placeholder="Resposta incorreta 3"><br>
+        <input type="url" name="" id="q${i}ansUrl3" placeholder="URL da imagem 3"><br>
+        `
+        form32.insertAdjacentHTML('beforeend', pergunta);
+    }
+    form32.insertAdjacentHTML('beforeend', '<button>Prosseguir pra criar níveis</button>');
+    form32.addEventListener('submit', logSubmit32);
+}
+
+function logSubmit32(event){
+    for (let i = 0; i < obj.questions.length; i++) {
+        obj.questions[i].title = document.getElementById(`q${i}title`).value;
+        obj.questions[i].color = document.getElementById(`q${i}color`).value;
+        for (let j = 0; j < 4; j++) {
+            if (document.getElementById(`q${i}ansText${j}`).value !== "") {
+                obj.questions[i].answers.push({ text: "", image: "" });
+                obj.questions[i].answers[j].text = document.getElementById(`q${i}ansText${j}`).value;
+                obj.questions[i].answers[j].image = document.getElementById(`q${i}ansUrl${j}`).value;
+                obj.questions[i].answers[j].isCorrectAnswer = j === 0 ? true : false;
+            }
+        }
+    }
+    //buildForm33();
+    changePage(page32, page33);
+    console.log(obj);
+    event.preventDefault();
+}
 
 
