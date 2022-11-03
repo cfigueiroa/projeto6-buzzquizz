@@ -7,6 +7,7 @@ const page31 = document.querySelector('.page31');
 const page32 = document.querySelector('.page32');
 const page33 = document.querySelector('.page33');
 const page34 = document.querySelector('.page34');
+let finalResponse, finalObj
 let currentId = 0;
 let currentObj = {};
 
@@ -21,7 +22,6 @@ loadQuizzes();
 function loadQuizzes() {
     axios.get(api)
         .then(function (response) {
-            console.log(response.data);
             const quizzes = response.data;
             const cards = document.querySelector('.bot .cards');
             cards.innerHTML = '';
@@ -50,13 +50,11 @@ function loadQuizzes() {
 }
 
 function loadQuiz(id) {
-    console.log(id);
     currentId = id;
     if (id !== 0) {
         axios.get(api + id)
             .then(function (response) {
                 currentObj = response.data;
-                console.log(currentObj);
                 changePage(page1, page2);
                 criarQuizz()
             })
@@ -148,7 +146,7 @@ function logSubmit31(event) {
         obj.questions.push({ title: "", color: "", answers: [] })
     }
     for (let i = 0; i < event.srcElement[3].value; i++) {
-        obj.levels.push({ title: "", text: "", image: "", minValue: 0, maxValue: 0 })
+        obj.levels.push({ title: "", text: "", image: "", minValue: 0 })
     }
     //clear fields
     for (let i = 0; i <= 3; i++) {
@@ -156,7 +154,6 @@ function logSubmit31(event) {
     }
     buildForm32();
     changePage(page31, page32);
-    console.log(obj)
     event.preventDefault();
 }
 
@@ -193,7 +190,7 @@ function buildForm32() {
     form32.addEventListener('submit', logSubmit32);
 }
 
-function logSubmit32(event){
+function logSubmit32(event) {
     for (let i = 0; i < obj.questions.length; i++) {
         obj.questions[i].title = document.getElementById(`q${i}title`).value;
         obj.questions[i].color = document.getElementById(`q${i}color`).value;
@@ -206,10 +203,64 @@ function logSubmit32(event){
             }
         }
     }
-    //buildForm33();
+    buildForm33();
     changePage(page32, page33);
-    console.log(obj);
     event.preventDefault();
 }
 
+//3.3
 
+const form33 = document.getElementById('form33');
+
+function buildForm33() {
+    for (let i = 0; i < obj.levels.length; i++) {
+        const level = `
+        <h3>Nível ${i + 1}</h3>
+        <input type="text" name="" id="l${i}title" placeholder="Título do nível" required><br>
+        <input type="number" name="" id="l${i}minValue" placeholder="% de acerto mínima" required><br>
+        <input type="url" name="" id="l${i}image" placeholder="URL da imagem do nível" required><br>
+        <input type="text" name="" id="l${i}text" placeholder="Descrição do nível" required><br>
+        `
+        form33.insertAdjacentHTML('beforeend', level);
+    }
+    form33.insertAdjacentHTML('beforeend', '<button>Finalizar Quizz</button>');
+    form33.addEventListener('submit', logSubmit33);
+}
+
+// Nível 1
+// Título do nível
+// % de acerto mínima
+// URL da imagem do nível
+// Descrição do nível
+// Finalizar Quizz
+
+
+
+function logSubmit33(event) {
+    for (let i = 0; i < obj.levels.length; i++) {
+        obj.levels[i].title = document.getElementById(`l${i}title`).value;
+        obj.levels[i].image = document.getElementById(`l${i}image`).value;
+        obj.levels[i].text = document.getElementById(`l${i}text`).value;
+        obj.levels[i].minValue = document.getElementById(`l${i}minValue`).value;
+    }
+    buildPage34();
+    event.preventDefault();
+}
+
+//3.4
+
+function buildPage34() {
+
+    axios.post(api, obj)
+        .then(function (response) {
+            finalResponse = response;
+            finalObj = response.data;
+            changePage(page33, page34);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    // O quão Potterhead é você?
+    // Acessar Quizz
+    // Voltar pra home
+}
