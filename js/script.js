@@ -188,7 +188,7 @@ function buildForm32() {
     for (let i = 0; i < obj.questions.length; i++) {
         const pergunta = `
         <h3>Pergunta ${i + 1}</h3>
-        <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" required><br>
+        <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" minlength="20" required><br>
         <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" pattern="#([0-9]|[A-F]|[a-f]){6}" required><br>
         <h3>Resposta correta</h3>
         <input type="text" name="" id="q${i}ansText0" placeholder="Resposta correta" required><br>
@@ -212,7 +212,7 @@ function logSubmit32(event) {
         obj.questions[i].title = document.getElementById(`q${i}title`).value;
         obj.questions[i].color = document.getElementById(`q${i}color`).value;
         for (let j = 0; j < 4; j++) {
-            if (document.getElementById(`q${i}ansText${j}`).value !== "") {
+            if (document.getElementById(`q${i}ansText${j}`).value !== "" && document.getElementById(`q${i}ansUrl${j}`).value !== "") {
                 obj.questions[i].answers.push({ text: "", image: "" });
                 obj.questions[i].answers[j].text = document.getElementById(`q${i}ansText${j}`).value;
                 obj.questions[i].answers[j].image = document.getElementById(`q${i}ansUrl${j}`).value;
@@ -233,10 +233,10 @@ function buildForm33() {
     for (let i = 0; i < obj.levels.length; i++) {
         const level = `
         <h3>Nível ${i + 1}</h3>
-        <input type="text" name="" id="l${i}title" placeholder="Título do nível" required><br>
-        <input type="number" name="" id="l${i}minValue" placeholder="% de acerto mínima" required><br>
+        <input type="text" name="" id="l${i}title" placeholder="Título do nível" minlength="10" required><br>
+        <input type="number" name="" id="l${i}minValue" placeholder="% de acerto mínima" min="0" max="100" required><br>
         <input type="url" name="" id="l${i}image" placeholder="URL da imagem do nível" required><br>
-        <input type="text" name="" id="l${i}text" placeholder="Descrição do nível" required><br>
+        <input type="text" name="" id="l${i}text" placeholder="Descrição do nível" minlength="30" required><br>
         `
         form33.insertAdjacentHTML('beforeend', level);
     }
@@ -254,6 +254,16 @@ function buildForm33() {
 
 
 function logSubmit33(event) {
+    for (let i = 0; i < obj.levels.length; i++) {
+        if (document.getElementById(`l${i}minValue`).value === "0") {
+            break;
+        }
+        if (i = obj.levels.length - 1) {
+            alert("O valor de % de acerto mínima de algum nível deve ser igual à 0!");
+            event.preventDefault();
+            return;
+        }
+    }
     for (let i = 0; i < obj.levels.length; i++) {
         obj.levels[i].title = document.getElementById(`l${i}title`).value;
         obj.levels[i].image = document.getElementById(`l${i}image`).value;
