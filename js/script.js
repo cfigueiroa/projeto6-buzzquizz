@@ -1,4 +1,4 @@
-const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
+const api = 'https://mock-api.driven.com.br/api/v3/buzzquizz/quizzes/';
 // const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 const page1 = document.querySelector('.page1');
 const page2 = document.querySelector('.page2');
@@ -23,7 +23,6 @@ function loadQuizzes() {
     axios.get(api)
         .then(function (response) {
             const quizzes = response.data;
-            console.log(quizzes);
             const cards = document.querySelector('.bot .cards');
             const mycards = document.querySelector('.top .cards');
             cards.innerHTML = '';
@@ -93,6 +92,7 @@ function loadQuiz(id) {
         axios.get(api + id)
             .then(function (response) {
                 currentObj = response.data;
+                console.log(currentObj)
                 changePage(page1, page2);
                 criarQuizz()
             })
@@ -102,13 +102,14 @@ function loadQuiz(id) {
 }
 
 //page2
+let contador = 0; let questions = 0;
 function selecionarCaixa(seletor) {
+    questions++
     const caixaClicada = seletor.parentNode;
     const click = caixaClicada.parentNode;
     const p = click.querySelectorAll("p")
     caixaClicada.classList.add("clicado")
 
-    console.log(p)
     for (let i = 0; i < p.length; i++) {
         if (p[i].classList.contains("correct")) {
             p[i].classList.add("acertou")
@@ -128,8 +129,47 @@ function selecionarCaixa(seletor) {
             seletor.removeAttribute("onclick")
         }
     }
+
+    
+    const clicado = seletor.parentNode.querySelector("p");
+    console.log(clicado)
+    if(clicado.classList.contains("correct")){
+        contador++
+    } console.log(contador)
+
+    if(currentObj.questions.length === questions){
+        caixaResultado()
+    }
+
+// {title: 'Título do nível 1', image: 'https://http.cat/411.jpg', text: 'Descrição do nível 1', minValue: 0} 
+// {title: 'Título do nível 2', image: 'https://http.cat/412.jpg', text: 'Descrição do nível 2', minValue: 50}
+// {title: 'Título do nível 3', image: 'https://http.cat/413.jpg', text: 'Descrição do nível 3', minValue: 100}
 }
 
+function caixaResultado (){
+    let resultado = (contador / currentObj.questions.length)*100
+
+    for(let i = 0; i < currentObj.levels.length; i++){
+        if (resultado < currentObj.levels[i + 1].minValue){
+            container.innerHTML += `
+            <div class="final">
+                    <div class="titulo-final">${resultado}% ${currentObj.levels[i].title}</div>
+                    <div class="conteudo-final">
+                      <div class="img-final"></div>
+                      <div class="paragrafo-final"><p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p></div>
+                    </div>
+                  </div>
+                  <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
+                  <div class="button"><button class="home">Voltar pra home</button></div>
+            `
+            break
+        }
+    }
+    
+
+}
+
+const container = document.querySelector(".container")
 function criarQuizz() {
     // Alterando o Fundo
     const fundo = document.querySelector(".fundo");
@@ -137,9 +177,7 @@ function criarQuizz() {
     fundo.style.backgroundSize = 'cover';
     fundo.innerHTML = currentObj.title;
 
-    const container = document.querySelector(".container")
     container.innerHTML = ""
-
     for (let i = 0; i < currentObj.questions.length; i++) {
         container.innerHTML += `
         <div class="quizz-caixa" id="caixa${i}">
@@ -175,18 +213,6 @@ function criarQuizz() {
         titulo.style.backgroundColor = currentObj.questions[i].color
         titulo = ""
     }
-
-    container.innerHTML += `
-    <div class="final">
-            <div class="titulo-final">88% de acerto: Você é praticamente um aluno de Hogwarts!</div>
-            <div class="conteudo-final">
-              <div class="img-final"></div>
-              <div class="paragrafo-final"><p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p></div>
-            </div>
-          </div>
-          <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
-          <div class="button"><button class="home">Voltar pra home</button></div>
-    `
 }
 
 //page3
