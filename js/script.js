@@ -189,7 +189,7 @@ function buildForm32() {
         const pergunta = `
         <h3>Pergunta ${i + 1}</h3>
         <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" required><br>
-        <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" required><br>
+        <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" pattern="#([0-9]|[A-F]|[a-f]){6}" required><br>
         <h3>Resposta correta</h3>
         <input type="text" name="" id="q${i}ansText0" placeholder="Resposta correta" required><br>
         <input type="url" name="" id="q${i}ansUrl0" placeholder="URL da imagem" required><br>
