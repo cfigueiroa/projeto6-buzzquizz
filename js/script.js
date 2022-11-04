@@ -24,7 +24,17 @@ function loadQuizzes() {
         .then(function (response) {
             const quizzes = response.data;
             const cards = document.querySelector('.bot .cards');
+            const mycards = document.querySelector('.top .cards');
             cards.innerHTML = '';
+    
+            if (localStorage.length > 0) {
+                let empty = document.querySelector('.empty');
+                empty.classList.add('hidden');
+                mycards.innerHTML = '';
+                let added = document.querySelector('.added');
+                added.classList.remove('hidden');
+            }
+            
 
             for (let i = 0; i < quizzes.length; i++) {
                 const newDiv = document.createElement("div");
@@ -38,6 +48,9 @@ function loadQuizzes() {
                   ),url(${quizzes[i].image})`;
                 newDiv.style.backgroundSize = '100% 100%';
                 cards.appendChild(newDiv);
+                if (localStorage.getItem(quizzes[i].id)) {
+                    mycards.appendChild(newDiv);
+                }
                 newDiv.addEventListener('click', function () {
                     loadQuiz(quizzes[i].id);
                 });
@@ -295,6 +308,7 @@ function buildPage34() {
         .then(function (response) {
             finalResponse = response;
             finalObj = response.data;
+            localStorage.setItem(finalObj.id, finalObj.key);
             page34.innerHTML = "";
             page34.innerHTML = `
             <h2>Seu quizz está pronto!</h2>
