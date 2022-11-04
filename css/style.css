@@ -278,6 +278,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .input-form{
@@ -300,19 +301,26 @@ main {
 }
 
 .botao-tela31{
-  width: 368.86px;
-  height: 54px;
+  width: 368px;
+  height: 74px;
   background: #EC362D;
   border-radius: 15px;
   
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 21px;
-  line-height: 25px;
   text-align: center;
   margin-top: 85px;
 
   color: #FFF5F4;
+}
+
+form#form31{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 23px;
 }
 
 .final {
