@@ -102,12 +102,19 @@ function loadQuiz(id) {
 }
 
 //page2
+
+function rolaPraBaixo(proxCaixa) {
+    const elementoQueQueroQueApareca = document.getElementById(proxCaixa);
+    elementoQueQueroQueApareca.scrollIntoView();
+}
+
 function selecionarCaixa(seletor) {
     const caixaClicada = seletor.parentNode;
     const click = caixaClicada.parentNode;
     const p = click.querySelectorAll("p")
     caixaClicada.classList.add("clicado")
-
+    let proxCaixa = "caixa" + (Number(click.parentNode.id.replace("caixa", "")) + 1);
+    setTimeout(rolaPraBaixo, 2000, proxCaixa);
     console.log(p)
     for (let i = 0; i < p.length; i++) {
         if (p[i].classList.contains("correct")) {
