@@ -23,6 +23,7 @@ function loadQuizzes() {
     axios.get(api)
         .then(function (response) {
             const quizzes = response.data;
+            console.log(quizzes);
             const cards = document.querySelector('.bot .cards');
             const mycards = document.querySelector('.top .cards');
             cards.innerHTML = '';
@@ -70,7 +71,10 @@ function loadQuizzes() {
                 newDiv.style.backgroundSize = '100% 100%';
                 cards.appendChild(newDiv);
                 if (localStorage.length > 0 && localStorage.getItem(quizzes[i].id)) {
-                    mycards.appendChild(newDiv);
+                    let newDivClone = mycards.appendChild(newDiv.cloneNode(true));
+                    newDivClone.addEventListener('click', function () {
+                        loadQuiz(quizzes[i].id);
+                    });
                 }
                 newDiv.addEventListener('click', function () {
                     loadQuiz(quizzes[i].id);
