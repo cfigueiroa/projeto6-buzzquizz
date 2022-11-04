@@ -26,7 +26,29 @@ function loadQuizzes() {
             const cards = document.querySelector('.bot .cards');
             const mycards = document.querySelector('.top .cards');
             cards.innerHTML = '';
-    
+
+            if (localStorage.length > 0) {
+
+                console.log(`Local Storage is not empty: ` + localStorage.length);
+                let lowestValidId = quizzes[quizzes.length - 1].id;
+                let biggestLocalId = localStorage.key(localStorage.length - 1)
+
+                if (lowestValidId > biggestLocalId) {
+                    localStorage.clear();
+                    console.log(`Local Storage cleared`);
+
+                } else {
+
+                    for (var i = 0; i < localStorage.length; i++) {
+                        if (localStorage.key(i) < lowestValidId) {
+                            console.log(`Local Storage removed ` + localStorage.key(i));
+                            localStorage.removeItem(localStorage.key(i));
+                        }
+                    }
+
+                }
+            }
+
             if (localStorage.length > 0) {
                 let empty = document.querySelector('.empty');
                 empty.classList.add('hidden');
@@ -34,7 +56,6 @@ function loadQuizzes() {
                 let added = document.querySelector('.added');
                 added.classList.remove('hidden');
             }
-            
 
             for (let i = 0; i < quizzes.length; i++) {
                 const newDiv = document.createElement("div");
@@ -48,7 +69,7 @@ function loadQuizzes() {
                   ),url(${quizzes[i].image})`;
                 newDiv.style.backgroundSize = '100% 100%';
                 cards.appendChild(newDiv);
-                if (localStorage.getItem(quizzes[i].id)) {
+                if (localStorage.length > 0 && localStorage.getItem(quizzes[i].id)) {
                     mycards.appendChild(newDiv);
                 }
                 newDiv.addEventListener('click', function () {
@@ -84,17 +105,17 @@ function selecionarCaixa(seletor) {
     caixaClicada.classList.add("clicado")
 
     console.log(p)
-    for(let i = 0; i < p.length; i++){
-        if (p[i].classList.contains("correct")){
+    for (let i = 0; i < p.length; i++) {
+        if (p[i].classList.contains("correct")) {
             p[i].classList.add("acertou")
         } else {
             p[i].classList.add("errou")
         }
     }
-    
+
     const caixas = click.querySelectorAll(`.caixa`)
     for (let i = 0; i < caixas.length; i++) {
-        if ((caixas[i].classList.contains("clicado") === false)){
+        if ((caixas[i].classList.contains("clicado") === false)) {
             caixas[i].innerHTML += `
             <div class="esconder"></div>
             `
@@ -269,15 +290,6 @@ function buildForm33() {
     form33.insertAdjacentHTML('beforeend', '<button>Finalizar Quizz</button>');
     form33.addEventListener('submit', logSubmit33);
 }
-
-// Nível 1
-// Título do nível
-// % de acerto mínima
-// URL da imagem do nível
-// Descrição do nível
-// Finalizar Quizz
-
-
 
 function logSubmit33(event) {
     for (let i = 0; i < obj.levels.length; i++) {
