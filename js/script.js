@@ -137,6 +137,18 @@ function criarQuizz() {
         titulo.style.backgroundColor = currentObj.questions[i].color
         titulo = ""
     }
+
+    container.innerHTML += `
+    <div class="final">
+            <div class="titulo-final">88% de acerto: Você é praticamente um aluno de Hogwarts!</div>
+            <div class="conteudo-final">
+              <div class="img-final"></div>
+              <div class="paragrafo-final"><p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p></div>
+            </div>
+          </div>
+          <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
+          <div class="button"><button class="home">Voltar pra home</button></div>
+    `
 }
 
 //page3
