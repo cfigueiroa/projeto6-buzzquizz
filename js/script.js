@@ -177,6 +177,7 @@ function logSubmit31(event) {
 function changePage(origin, dest) {
     origin.classList.add('hidden');
     dest.classList.remove('hidden');
+    window.scrollTo(0, 0);
 }
 
 //3.2
