@@ -320,12 +320,7 @@ main {
   color: #818181;
 }
 
-.hidden {
-  display: none;
-}
-
 /* page3 */
-
 
 .page31 {
   display: flex;
@@ -381,3 +376,11 @@ main {
   line-height: 25px;
   color: #FFF5F4;
 }
+
+/* KEEP AT BOTTOM */
+
+.hidden {
+  display: none;
+}
+
+/* KEEP AT BOTTOM */
