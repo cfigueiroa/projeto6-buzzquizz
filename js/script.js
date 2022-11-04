@@ -67,13 +67,21 @@ function loadQuiz(id) {
 function selecionarCaixa(seletor) {
     const caixaClicada = seletor.parentNode;
     const click = caixaClicada.parentNode;
-    const p = caixaClicada.querySelector("p")
+    const p = click.querySelectorAll("p")
     caixaClicada.classList.add("clicado")
-    p.classList.add("acertou")
 
+    console.log(p)
+    for(let i = 0; i < p.length; i++){
+        if (p[i].classList.contains("correct")){
+            p[i].classList.add("acertou")
+        } else {
+            p[i].classList.add("errou")
+        }
+    }
+    
     const caixas = click.querySelectorAll(`.caixa`)
     for (let i = 0; i < caixas.length; i++) {
-        if (caixas[i].classList.contains("clicado") === false) {
+        if ((caixas[i].classList.contains("clicado") === false)){
             caixas[i].innerHTML += `
             <div class="esconder"></div>
             `
@@ -107,8 +115,8 @@ function criarQuizz() {
             if (currentObj.questions[i].answers[j].isCorrectAnswer) {
                 caixas.innerHTML += `
                 <div class="caixa">
-                <div onclick="selecionarCaixa(this)" class="img correct" id="img${j}"></div>
-                <p id="paragrafo${j}">gatinho</p>
+                <div onclick="selecionarCaixa(this)" class="img" id="img${j}"></div>
+                <p class="correct" id="paragrafo${j}">gatinho</p>
                 </div>
                 `
             } else {
