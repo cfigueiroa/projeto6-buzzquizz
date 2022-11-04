@@ -240,6 +240,89 @@ main {
   color: #FF4B4B;
 }
 
+
+
+/* page3 */
+
+/* page 31*/
+
+.page31{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  
+}
+
+
+.titulo-page31{
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 23px;
+  color: #000000;
+
+  width: 224px;
+  height: 27px;
+  display: flex;
+  margin-top: 71px;
+  margin-bottom: 27px;
+}
+
+.container-form{
+  background-color: #ffffff;
+  width: 600px;
+  height: 256px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.input-form{
+  width: 564px;
+  height: 46px;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  margin-bottom: 9px;
+  position: relative;
+  padding-left: 23px;
+}
+
+.input-form::placeholder{
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+
+  color: #636363;
+}
+
+.botao-tela31{
+  width: 368px;
+  height: 74px;
+  background: #EC362D;
+  border-radius: 15px;
+  
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 21px;
+  text-align: center;
+  margin-top: 85px;
+
+  color: #FFF5F4;
+}
+
+form#form31{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 23px;
+}
+
 .final {
   width: 100%;
   height: 430px;
