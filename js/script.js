@@ -114,9 +114,9 @@ function selecionarCaixa(seletor) {
     const click = caixaClicada.parentNode;
     const p = click.querySelectorAll("p")
     caixaClicada.classList.add("clicado")
-    
+
     let proxCaixa = "caixa" + (Number(click.parentNode.id.replace("caixa", "")) + 1);
-    setTimeout(rolaPraBaixo, 2000, proxCaixa);
+    //setTimeout(rolaPraBaixo, 2000, proxCaixa);
     console.log(p)
     for (let i = 0; i < p.length; i++) {
         if (p[i].classList.contains("correct")) {
@@ -139,23 +139,49 @@ function selecionarCaixa(seletor) {
     }
 
     const paragrafo = seletor.parentNode.querySelector("p")
-    if(paragrafo.classList.contains("correct")){
+    if (paragrafo.classList.contains("correct")) {
         acertos++
     }
     const percentual = ((acertos / currentObj.questions.length) * 100).toFixed(0)
 
-    if (contador === currentObj.levels.length){
+    if (contador === currentObj.levels.length) {
+        let candidata = 0;
+        let indice = 0;
+
+        for (let i = 0; i < currentObj.levels.length; i++) {
+            if (currentObj.levels[i].minValue <= percentual && currentObj.levels[i].minValue > candidata) {
+                candidata = currentObj.levels[i].minValue;
+                indice = i;
+            }
+        }
+
         container.innerHTML += `
         <div class="final">
-                <div class="titulo-final">${percentual}% de acerto: Você é praticamente um aluno de Hogwarts!</div>
-                <div class="conteudo-final">
-                  <div class="img-final"></div>
-                  <div class="paragrafo-final"><p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p></div>
-                </div>
-              </div>
-              <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
-              <div class="button"><button class="home">Voltar pra home</button></div>
+        <div class="titulo-final">${percentual}% de acerto: ${currentObj.levels[indice].title}</div>
+        <div class="conteudo-final">
+        <div class="img-final"></div>
+        <div class="paragrafo-final"><p>${currentObj.levels[indice].text}</p></div>
+        </div>
+        <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
+        <div class="botao-final" onclick="changePage(page2, page1)">Voltar para a Home</div>
+        </div>
         `
+        let imgFinal = document.querySelector(".img-final")
+        imgFinal.style.background = `url(${currentObj.levels[indice].image})`
+        imgFinal.style.backgroundSize = "100% 100%"
+
+
+        // container.innerHTML += `
+        // <div class="final">
+        //         <div class="titulo-final">${percentual}% de acerto: Você é praticamente um aluno de Hogwarts!</div>
+        //         <div class="conteudo-final">
+        //           <div class="img-final"></div>
+        //           <div class="paragrafo-final"><p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p></div>
+        //         </div>
+        //       </div>
+        //       <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
+        //       <div class="button"><button class="home">Voltar pra home</button></div>
+        // `
     }
     contador++
 }
