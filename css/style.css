@@ -454,6 +454,77 @@ main {
 
 }
 
+/*page 33*/
+
+.page33 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page33 h2 {
+  width: 246px;
+  height: 27px;
+  margin-top: 65px;
+  margin-bottom: 36px;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.page33 .forms {
+  width: 600px;
+  padding: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+.page33 #form33 input {
+  width: 100%;
+  height: 46px;
+  background: #FFFFFF;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  padding-left: 23px;
+  margin-bottom: 14px;
+}
+
+.page33 #form33 input::placeholder {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 22px;
+  color: #BABABA;
+}
+
+.page33 #form33 h3 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  margin-top: 7px;
+  margin-bottom: 12px;
+}
+
+.page33 button {
+  width: 355px;
+  height: 54px;
+  background: #EC362D;
+  border-radius: 15px;
+  border: none;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 25px;
+  color: #FFF5F4;
+  margin: 0px calc(50% - 355px/2);
+  margin-top: 65px;
+  margin-bottom: 80px;
+
+}
+
 /* KEEP AT BOTTOM */
 
 .hidden {

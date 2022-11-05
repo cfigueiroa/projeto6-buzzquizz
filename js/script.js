@@ -315,11 +315,13 @@ const form33 = document.getElementById('form33');
 function buildForm33() {
     for (let i = 0; i < obj.levels.length; i++) {
         const level = `
+        <div class="forms">
         <h3>Nível ${i + 1}</h3>
         <input type="text" name="" id="l${i}title" placeholder="Título do nível" minlength="10" required><br>
         <input type="number" name="" id="l${i}minValue" placeholder="% de acerto mínima" min="0" max="100" required><br>
         <input type="url" name="" id="l${i}image" placeholder="URL da imagem do nível" required><br>
         <input type="text" name="" id="l${i}text" placeholder="Descrição do nível" minlength="30" required><br>
+        </div>
         `
         form33.insertAdjacentHTML('beforeend', level);
     }
