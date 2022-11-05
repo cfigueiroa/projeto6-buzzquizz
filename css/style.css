@@ -46,7 +46,8 @@ main {
 
 .page1 .top {
   margin: 0 auto;
-  width: 1051px;
+  max-width: 1051px;
+  width: 100%;
 }
 
 .page1 .added {
@@ -207,12 +208,11 @@ main {
 }
 
 .caixa .img {
-  max-width: 335px;
-  width: 100%;
+  width: 335px;
   height: 175px;
   margin-bottom: 8px;
   background-image: url(../img/gatinho.png);
-  background-size: cover;
+  background-size: 100%;
 }
 
 .caixa p {
