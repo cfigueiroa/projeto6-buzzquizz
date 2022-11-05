@@ -369,9 +369,12 @@ function buildPage34() {
             page34.innerHTML = "";
             page34.innerHTML = `
             <h2>Seu quizz está pronto!</h2>
+            <div class="quizz-look">
+            <image src="${finalObj.image}" class="image-quizz">
             <h3>${finalObj.title}</h3>
-            <button onClick="loadQuiz2(${finalObj.id})">Acessar Quizz</button><br>
-            <button onClick="window.location.href=window.location.href">Voltar pra home</button>
+            </div>
+            <button class="acesso" onClick="loadQuiz2(${finalObj.id})">Acessar Quizz</button><br>
+            <button class="voltar-home" onClick="window.location.href=window.location.href">Voltar pra home</button>
             `;
             changePage(page33, page34);
         })
