@@ -176,6 +176,8 @@ function selecionarCaixa(seletor) {
 
 }
 
+
+
 const container = document.querySelector(".container")
 function criarQuizz() {
     // Alterando o Fundo
@@ -219,6 +221,14 @@ function criarQuizz() {
         let titulo = document.querySelector(`#titulo${i}`)
         titulo.style.backgroundColor = currentObj.questions[i].color
         titulo = ""
+    }
+
+    var content = document.querySelectorAll(".conteudo-quizz");
+    
+    for (let i = 0; i < content.length; i++) {
+        for (let j = content[i].children.length; j >= 0; j--) {
+            content[i].appendChild(content[i].children[Math.random() * j | 0]);
+        }
     }
 }
 
