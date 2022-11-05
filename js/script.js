@@ -98,6 +98,10 @@ function loadQuiz(id) {
 //page2
 let contador = 0; let acertos = 0;
 
+function reloadPage() {
+    location.reload(true);
+}
+
 function rolaPraBaixo(proxCaixa) {
     const elementoQueQueroQueApareca = document.getElementById(proxCaixa);
     elementoQueQueroQueApareca.scrollIntoView();
@@ -154,8 +158,8 @@ function selecionarCaixa(seletor) {
                         <div class="paragrafo-final"><p>${currentObj.levels[indice].text}</p></div>
                     </div>
                 </div>
-            <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
-            <div class="button"><button class="home">Voltar pra home</button></div>
+            <div class="button-final"><button onclick="loadQuiz(currentId)" class="reiniciar-quizz">Reiniciar Quizz</button></div>
+            <div class="button"><button onclick="reloadPage()" class="home">Voltar pra home</button></div>
         `
         let imgFinal = document.querySelector(".img-final")
         imgFinal.style.background = `url(${currentObj.levels[indice].image})`
