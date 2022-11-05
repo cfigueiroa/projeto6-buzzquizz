@@ -529,6 +529,80 @@ main {
 
 }
 
+/* page 3.4*/
+
+.page34 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page34 h2 {
+  font-family: 'Roboto';
+  width: 230px;
+  height: 27px;
+  margin-top: 65px;
+  margin-bottom: 36px;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.quizz-look{
+  position: relative;
+}
+
+.page34 h3 {
+  font-family: 'Roboto';
+  width: 309px;
+  height: 34px;
+  font-weight: 400;
+  font-size: 23px;
+  color: #ffffff;
+  position: absolute;
+  bottom: 9px;
+  left: 23px;
+}
+
+.image-quizz{
+  width: 500px;
+  height: 266px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(image.png);
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.acesso{
+  width: 220px;
+  height: 44px;
+  background-color: #EC362D;
+  border-radius: 15px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  text-align: center;
+  color: #FFF5F4;
+  margin-top: 45px;
+
+}
+
+.voltar-home{
+  width: 220px;
+  height: 44px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  text-align: center;
+  color: #818181;
+  margin-top: 9px;
+  background-color: #FAFAFA;
+}
+
+
 /* KEEP AT BOTTOM */
 
 .hidden {
