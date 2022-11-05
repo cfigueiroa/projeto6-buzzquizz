@@ -17,7 +17,11 @@
           <div class="added hidden">
             <div class="title">
               <h2>Seus Quizzes</h2>
-              <img onclick="changePage(page1, page3)" src="img/add-btn.png" alt="" />
+              <img
+                onclick="changePage(page1, page3)"
+                src="img/add-btn.png"
+                alt=""
+              />
             </div>
             <div class="cards">
               <div class="card">
@@ -37,43 +41,51 @@
           <div class="title">
             <h2>Todos os Quizzes</h2>
           </div>
-          <div class="cards">
-            <div class="card">
-              <p>O quanto você é de boas?</p>
-            </div>
-            <div class="card">
-              <p>O quanto você é de boas?</p>
-            </div>
-            <div class="card">
-              <p>O quanto você é de boas?</p>
-            </div>
-            <div class="card">
-              <p>O quanto você é de boas?</p>
-            </div>
-            <div class="card">
-              <p>O quanto você é de boas?</p>
-            </div>
-            <div class="card">
-              <p>O quanto você é de boas?</p>
-            </div>
-          </div>
+          <div class="cards"></div>
         </div>
       </div>
       <div class="page2 hidden">
         <div class="fundo"></div>
-        <div class="container">
-        </div>
+        <div class="container"></div>
       </div>
       <div class="page3 hidden">
         <div class="page31">
           <h2>Comece pelo começo</h2>
           <form action="" method="get" id="form31">
-          <input type="text" name="" id="title" placeholder="Título do seu quizz" minlength="20" maxlength="65" required><br>
-          <input type="url" name="" id="image" placeholder="URL da imagem do seu quizz" required><br>
-          <input type="number" name="" id="questions-qty" placeholder="Quantidade de perguntas do quizz" min="3" required><br>
-          <input type="number" name="" id="levels-qty" placeholder="Quantidade de níveis do quizz" min="2" required><br>
-          <button>Prosseguir pra criar perguntas</button>
-        </form>
+            <input
+              type="text"
+              name=""
+              id="title"
+              placeholder="Título do seu quizz"
+              minlength="20"
+              maxlength="65"
+              required
+            /><br />
+            <input
+              type="url"
+              name=""
+              id="image"
+              placeholder="URL da imagem do seu quizz"
+              required
+            /><br />
+            <input
+              type="number"
+              name=""
+              id="questions-qty"
+              placeholder="Quantidade de perguntas do quizz"
+              min="3"
+              required
+            /><br />
+            <input
+              type="number"
+              name=""
+              id="levels-qty"
+              placeholder="Quantidade de níveis do quizz"
+              min="2"
+              required
+            /><br />
+            <button>Prosseguir pra criar perguntas</button>
+          </form>
         </div>
         <div class="page32 hidden">
           <h2>Crie suas perguntas</h2>
@@ -83,8 +95,7 @@
           <h2>Agora, decida os níveis!</h2>
           <form action="" method="get" id="form33"></form>
         </div>
-        <div class="page34 hidden">
-        </div>
+        <div class="page34 hidden"></div>
       </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

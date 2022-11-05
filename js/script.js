@@ -29,19 +29,16 @@ function loadQuizzes() {
 
             if (localStorage.length > 0) {
 
-                console.log(`Local Storage is not empty: ` + localStorage.length);
                 let lowestValidId = quizzes[quizzes.length - 1].id;
                 let biggestLocalId = localStorage.key(localStorage.length - 1)
 
                 if (lowestValidId > biggestLocalId) {
                     localStorage.clear();
-                    console.log(`Local Storage cleared`);
 
                 } else {
 
                     for (var i = 0; i < localStorage.length; i++) {
                         if (localStorage.key(i) < lowestValidId) {
-                            console.log(`Local Storage removed ` + localStorage.key(i));
                             localStorage.removeItem(localStorage.key(i));
                         }
                     }
@@ -81,9 +78,7 @@ function loadQuizzes() {
             }
 
         })
-        .catch(function (error) {
-            console.log(error);
-        });
+        .catch(function (error) { });
 }
 
 function loadQuiz(id) {
@@ -92,11 +87,10 @@ function loadQuiz(id) {
         axios.get(api + id)
             .then(function (response) {
                 currentObj = response.data;
-                console.log(currentObj)
                 changePage(page1, page2);
                 criarQuizz()
             })
-            .catch(function (error) { console.log(error); });
+            .catch(function (error) { });
     }
 
 }
@@ -115,9 +109,6 @@ function selecionarCaixa(seletor) {
     const p = click.querySelectorAll("p")
     caixaClicada.classList.add("clicado")
 
-    let proxCaixa = "caixa" + (Number(click.parentNode.id.replace("caixa", "")) + 1);
-    setTimeout(rolaPraBaixo, 2000, proxCaixa);
-    console.log(p)
     for (let i = 0; i < p.length; i++) {
         if (p[i].classList.contains("correct")) {
             p[i].classList.add("acertou")
@@ -156,7 +147,7 @@ function selecionarCaixa(seletor) {
         }
 
         container.innerHTML += `
-        <div class="final">
+        <div class="final" id="final">
                 <div class="titulo-final">${percentual}% de acerto: ${currentObj.levels[indice].title}</div>
                     <div class="conteudo-final">
                         <div class="img-final"></div>
@@ -171,6 +162,14 @@ function selecionarCaixa(seletor) {
         imgFinal.style.backgroundSize = "100% 100%"
     }
     contador++
+
+    let proxCaixa = "caixa" + (Number(click.parentNode.id.replace("caixa", "")) + 1);
+    if (document.getElementById(proxCaixa)) {
+        setTimeout(rolaPraBaixo, 2000, proxCaixa);
+    } else {
+        setTimeout(rolaPraBaixo, 2000, "final");
+    }
+
 }
 
 const container = document.querySelector(".container")
@@ -220,9 +219,7 @@ function criarQuizz() {
 }
 
 //page3
-
 //3.1
-
 let obj = { title: "", image: "", questions: [], levels: [] }
 
 let title = document.getElementById("title");
@@ -261,8 +258,6 @@ function changePage(origin, dest) {
 }
 
 //3.2
-
-
 const form32 = document.getElementById('form32');
 
 function buildForm32() {
@@ -309,7 +304,6 @@ function logSubmit32(event) {
 }
 
 //3.3
-
 const form33 = document.getElementById('form33');
 
 function buildForm33() {
@@ -351,7 +345,6 @@ function logSubmit33(event) {
 }
 
 //3.4
-
 function buildPage34() {
 
     axios.post(api, obj)
@@ -368,9 +361,7 @@ function buildPage34() {
             `;
             changePage(page33, page34);
         })
-        .catch(function (error) {
-            console.log(error);
-        });
+        .catch(function (error) { });
 }
 
 function loadQuiz2(id) {
@@ -382,7 +373,7 @@ function loadQuiz2(id) {
                 changePage(page34, page2);
                 criarQuizz()
             })
-            .catch(function (error) { console.log(error); });
+            .catch(function (error) { });
     }
 
 }
