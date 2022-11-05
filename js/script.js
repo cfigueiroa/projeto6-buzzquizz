@@ -116,7 +116,7 @@ function selecionarCaixa(seletor) {
     caixaClicada.classList.add("clicado")
 
     let proxCaixa = "caixa" + (Number(click.parentNode.id.replace("caixa", "")) + 1);
-    //setTimeout(rolaPraBaixo, 2000, proxCaixa);
+    setTimeout(rolaPraBaixo, 2000, proxCaixa);
     console.log(p)
     for (let i = 0; i < p.length; i++) {
         if (p[i].classList.contains("correct")) {
@@ -157,31 +157,18 @@ function selecionarCaixa(seletor) {
 
         container.innerHTML += `
         <div class="final">
-        <div class="titulo-final">${percentual}% de acerto: ${currentObj.levels[indice].title}</div>
-        <div class="conteudo-final">
-        <div class="img-final"></div>
-        <div class="paragrafo-final"><p>${currentObj.levels[indice].text}</p></div>
-        </div>
-        <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
-        <div class="botao-final" onclick="changePage(page2, page1)">Voltar para a Home</div>
-        </div>
+                <div class="titulo-final">${percentual}% de acerto: ${currentObj.levels[indice].title}</div>
+                    <div class="conteudo-final">
+                        <div class="img-final"></div>
+                        <div class="paragrafo-final"><p>${currentObj.levels[indice].text}</p></div>
+                    </div>
+                </div>
+            <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
+            <div class="button"><button class="home">Voltar pra home</button></div>
         `
         let imgFinal = document.querySelector(".img-final")
         imgFinal.style.background = `url(${currentObj.levels[indice].image})`
         imgFinal.style.backgroundSize = "100% 100%"
-
-
-        // container.innerHTML += `
-        // <div class="final">
-        //         <div class="titulo-final">${percentual}% de acerto: Você é praticamente um aluno de Hogwarts!</div>
-        //         <div class="conteudo-final">
-        //           <div class="img-final"></div>
-        //           <div class="paragrafo-final"><p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p></div>
-        //         </div>
-        //       </div>
-        //       <div class="button-final"><button class="reiniciar-quizz">Reiniciar Quizz</button></div>
-        //       <div class="button"><button class="home">Voltar pra home</button></div>
-        // `
     }
     contador++
 }
@@ -281,6 +268,7 @@ const form32 = document.getElementById('form32');
 function buildForm32() {
     for (let i = 0; i < obj.questions.length; i++) {
         const pergunta = `
+        <div class="forms">
         <h3>Pergunta ${i + 1}</h3>
         <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" minlength="20" required><br>
         <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" pattern="#([0-9]|[A-F]|[a-f]){6}" required><br>
@@ -289,11 +277,12 @@ function buildForm32() {
         <input type="url" name="" id="q${i}ansUrl0" placeholder="URL da imagem" required><br>
         <h3>Respostas incorretas</h3>
         <input type="text" name="" id="q${i}ansText1" placeholder="Resposta incorreta 1" required><br>
-        <input type="url" name="" id="q${i}ansUrl1" placeholder="URL da imagem 1" required><br>
+        <input type="url" name="" id="q${i}ansUrl1" placeholder="URL da imagem 1" class="id1" required><br>
         <input type="text" name="" id="q${i}ansText2" placeholder="Resposta incorreta 2"><br>
-        <input type="url" name="" id="q${i}ansUrl2" placeholder="URL da imagem 2"><br>
+        <input type="url" name="" id="q${i}ansUrl2" placeholder="URL da imagem 2" class="id2"><br>
         <input type="text" name="" id="q${i}ansText3" placeholder="Resposta incorreta 3"><br>
-        <input type="url" name="" id="q${i}ansUrl3" placeholder="URL da imagem 3"><br>
+        <input type="url" name="" id="q${i}ansUrl3" placeholder="URL da imagem 3" class="id3"><br>
+        </div>
         `
         form32.insertAdjacentHTML('beforeend', pergunta);
     }
