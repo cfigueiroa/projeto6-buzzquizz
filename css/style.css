@@ -678,7 +678,13 @@ main {
     height: 142px;
   }
 
+  .fundo h1 {
+    font-size: 19px;
+    line-height: 22px;
+  }
+
   .titulo-quizz {
+    font-size: 19px;
     height: 89px;
     line-height: 89px;
   }
@@ -722,6 +728,7 @@ main {
   .caixa p {
     max-width: 156px;
     width: 100%;
+    font-size: 13px;
   }
 
   .page32 h2 {
