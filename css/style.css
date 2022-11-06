@@ -372,13 +372,13 @@ main {
   margin-bottom: 9px;
   padding-left: 23px;
   border: 1px solid #D1D1D1;
-}
-
-.page31 #form31 input::placeholder {
   font-style: italic;
   font-weight: 400;
   font-size: 2rem;
   line-height: 2.2rem;
+}
+
+.page31 #form31 input::placeholder {
   color: #BABABA;
 }
 
@@ -446,14 +446,14 @@ main {
   border-radius: 5px;
   padding-left: 23px;
   margin-bottom: 14px;
-}
-
-.page32 #form32 input::placeholder {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
   font-size: 2rem;
   line-height: 2.2rem;
+}
+
+.page32 #form32 input::placeholder {
   color: #BABABA;
 }
 
@@ -541,14 +541,14 @@ main {
   border-radius: 5px;
   padding-left: 23px;
   margin-bottom: 14px;
-}
-
-.page33 #form33 input::placeholder {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
   font-size: 2rem;
   line-height: 2.2rem;
+}
+
+.page33 #form33 input::placeholder {
   color: #BABABA;
 }
 
