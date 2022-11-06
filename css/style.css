@@ -590,20 +590,8 @@ main {
 }
 
 .quizz-look{
-  display: flex;
-  justify-content: center;
-}
-
-.page34 h3 {
-  font-family: 'Roboto';
-  width: 400px;
-  height: 34px;
-  line-height: 22px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 2.3rem;
-  color: #ffffff;
-  position: absolute;
+  max-width: 340px;
+  position: relative;
 }
 
 .image-quizz{
@@ -613,7 +601,22 @@ main {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(image.png);
   border-radius: 5px;
   object-fit: cover;
-  position: relative;
+}
+
+
+.page34 h3 {
+  font-family: 'Roboto';
+  max-width: 300px;
+  width: 100%;
+  height: 34px;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 2.3rem;
+  color: #ffffff;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
 }
 
 .acesso{
@@ -648,7 +651,7 @@ main {
   border: none;
 }
 
-@media (max-width: 400px){
+@media (max-width: 450px){
   .page1 {
     width: 90%;
     margin: auto;
@@ -673,8 +676,13 @@ main {
     height: 142px;
   }
 
+  .titulo-quizz {
+    height: 89px;
+    line-height: 89px;
+  }
+
   .quizz-caixa {
-    padding: 20px;
+    padding: 18px;
   }
 
   .page32  button, .page31 #form31 button {
@@ -692,8 +700,13 @@ main {
     flex-direction: column;
   }
 
+  .caixa {
+    max-width: 156px;
+    width: 100%;
+  }
+
   .caixa .img {
-    width: 16.3rem;
+    width: 100%;
     height: 11.3rem;
   }
 
