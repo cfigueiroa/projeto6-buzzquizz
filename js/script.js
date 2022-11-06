@@ -305,7 +305,8 @@ function buildForm32() {
 function removerHidden(){
     const a = document.querySelector(".forms0");
     a.querySelector(".inputs").classList.remove("hidden")
-    a.querySelector(".vectorImg").classList.add("desaparecer")
+    const b = a.querySelector(".vector")
+    b.remove()
 }
 
 function mostrarFoms(seletor){
