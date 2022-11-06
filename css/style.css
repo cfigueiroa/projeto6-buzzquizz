@@ -715,7 +715,8 @@ main {
   }
 
   .caixa p {
-    width: 16.3rem;
+    max-width: 156px;
+    width: 100%;
   }
 
   .page32 h2 {
