@@ -276,9 +276,9 @@ const form32 = document.getElementById('form32');
 function buildForm32() {
     for (let i = 0; i < obj.questions.length; i++) {
         const pergunta = `
-        <div class="forms forms${i}" onclick="mostrarFoms(this)">
+        <div class="forms">
         <h3>Pergunta ${i + 1}</h3>
-        <img class="vector" src="../img/Vector.png">
+        <img class="vector" onclick="mostrarFoms(this)" src="../img/Vector.png">
         <div class="hidden inputs"> 
         <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" minlength="20" required><br>
         <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" pattern="#([0-9]|[A-F]|[a-f]){6}" required><br>
@@ -303,14 +303,14 @@ function buildForm32() {
 }
 
 function removerHidden(){
-    const a = document.querySelector(".forms0");
-    a.querySelector(".inputs").classList.remove("hidden")
-    const b = a.querySelector(".vector")
-    b.remove()
+    const a = document.querySelector("#form32 .forms");
+    a.querySelector(".inputs").classList.remove("hidden");
+    const b = a.querySelector(".vector");
+    b.remove();
 }
 
 function mostrarFoms(seletor){
-    seletor.querySelector(".inputs").classList.toggle("hidden")
+    seletor.parentNode.querySelector(".inputs").classList.toggle("hidden")
 }
 
 function logSubmit32(event) {
