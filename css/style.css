@@ -512,7 +512,19 @@ main {
 .page33 #form33 {
   max-width: 600px;
   width: 100%;
+  position: relative;
 }
+
+.page33 .forms {
+  position: relative;
+}
+
+.page33 .forms .vector1 {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
 
 .page33 .forms {
   width: 100%;

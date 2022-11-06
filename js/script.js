@@ -330,17 +330,32 @@ function buildForm33() {
     for (let i = 0; i < obj.levels.length; i++) {
         const level = `
         <div class="forms">
-        <h3>Nível ${i + 1}</h3>
-        <input type="text" name="" id="l${i}title" placeholder="Título do nível" minlength="10" required><br>
-        <input type="number" name="" id="l${i}minValue" placeholder="% de acerto mínima" min="0" max="100" required><br>
-        <input type="url" name="" id="l${i}image" placeholder="URL da imagem do nível" required><br>
-        <input type="text" name="" id="l${i}text" placeholder="Descrição do nível" minlength="30" required><br>
+            <h3>Nível ${i + 1}</h3>
+            <img class="vector1" onclick="mostrarForms(this)" src="./img/Vector.png">
+            <div class="forms${i} hidden inputs">
+                <input type="text" name="" id="l${i}title" placeholder="Título do nível" minlength="10" required><br>
+                <input type="number" name="" id="l${i}minValue" placeholder="% de acerto mínima" min="0" max="100" required><br>
+                <input type="url" name="" id="l${i}image" placeholder="URL da imagem do nível" required><br>
+                <input type="text" name="" id="l${i}text" placeholder="Descrição do nível" minlength="30" required><br>
+            </div>
         </div>
         `
         form33.insertAdjacentHTML('beforeend', level);
     }
     form33.insertAdjacentHTML('beforeend', '<button>Finalizar Quizz</button>');
     form33.addEventListener('submit', logSubmit33);
+    setTimeout(removerHidden1, 0)
+}
+
+function removerHidden1(){
+    const a = document.querySelector("#form33 .forms");
+    a.querySelector(".hidden").classList.remove("hidden");
+    const b = a.querySelector(".vector1");
+    b.remove();
+}
+
+function mostrarForms(seletor){
+    seletor.parentNode.querySelector(".inputs").classList.toggle("hidden")
 }
 
 function logSubmit33(event) {
