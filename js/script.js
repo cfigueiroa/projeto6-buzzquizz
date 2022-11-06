@@ -294,6 +294,9 @@ function buildForm32() {
     form32.insertAdjacentHTML('beforeend', '<button>Prosseguir pra criar níveis</button>');
     form32.addEventListener('submit', logSubmit32);
     setTimeout(removerHidden, 0)
+    form32.addEventListener("invalid", (event) => {
+        event.target.parentNode.classList.remove("hidden");   
+    }, true);
 }
 
 function removerHidden(){
@@ -345,6 +348,9 @@ function buildForm33() {
     form33.insertAdjacentHTML('beforeend', '<button>Finalizar Quizz</button>');
     form33.addEventListener('submit', logSubmit33);
     setTimeout(removerHidden1, 0)
+    form33.addEventListener("invalid", (event) => {
+        event.target.parentNode.classList.remove("hidden");   
+    }, true);
 }
 
 function removerHidden1(){
