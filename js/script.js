@@ -271,22 +271,22 @@ function buildForm32() {
     for (let i = 0; i < obj.questions.length; i++) {
         const pergunta = `
         <div class="forms">
-        <h3>Pergunta ${i + 1}</h3>
-        <img class="vector" onclick="mostrarFoms(this)" src="../img/Vector.png">
-        <div class="hidden inputs"> 
-        <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" minlength="20" required><br>
-        <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" pattern="#([0-9]|[A-F]|[a-f]){6}" required><br>
-        <h3>Resposta correta</h3>
-        <input type="text" name="" id="q${i}ansText0" placeholder="Resposta correta" required><br>
-        <input type="url" name="" id="q${i}ansUrl0" placeholder="URL da imagem" required><br>
-        <h3>Respostas incorretas</h3>
-        <input type="text" name="" id="q${i}ansText1" placeholder="Resposta incorreta 1" required><br>
-        <input type="url" name="" id="q${i}ansUrl1" placeholder="URL da imagem 1" class="id1" required><br>
-        <input type="text" name="" id="q${i}ansText2" placeholder="Resposta incorreta 2"><br>
-        <input type="url" name="" id="q${i}ansUrl2" placeholder="URL da imagem 2" class="id2"><br>
-        <input type="text" name="" id="q${i}ansText3" placeholder="Resposta incorreta 3"><br>
-        <input type="url" name="" id="q${i}ansUrl3" placeholder="URL da imagem 3" class="id3"><br>
-        </div>
+            <h3>Pergunta ${i + 1}</h3>
+            <img class="vector" onclick="mostrarFoms(this)" src="./img/Vector.png">
+            <div class="hidden inputs"> 
+                <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" minlength="20" required><br>
+                <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" pattern="#([0-9]|[A-F]|[a-f]){6}" required><br>
+                <h3>Resposta correta</h3>
+                <input type="text" name="" id="q${i}ansText0" placeholder="Resposta correta" required><br>
+                <input type="url" name="" id="q${i}ansUrl0" placeholder="URL da imagem" required><br>
+                <h3>Respostas incorretas</h3>
+                <input type="text" name="" id="q${i}ansText1" placeholder="Resposta incorreta 1" required><br>
+                <input type="url" name="" id="q${i}ansUrl1" placeholder="URL da imagem 1" class="id1" required><br>
+                <input type="text" name="" id="q${i}ansText2" placeholder="Resposta incorreta 2"><br>
+                <input type="url" name="" id="q${i}ansUrl2" placeholder="URL da imagem 2" class="id2"><br>
+                <input type="text" name="" id="q${i}ansText3" placeholder="Resposta incorreta 3"><br>
+                <input type="url" name="" id="q${i}ansUrl3" placeholder="URL da imagem 3" class="id3"><br>
+            </div>
         </div>
         `
         form32.insertAdjacentHTML('beforeend', pergunta);
