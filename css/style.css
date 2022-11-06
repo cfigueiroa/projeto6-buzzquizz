@@ -119,7 +119,8 @@ main {
 }
 
 .card {
-  width: 340px;
+  max-width: 340px;
+  width: 100%;
   height: 181px;
   background: linear-gradient(
       180deg,
@@ -164,16 +165,16 @@ main {
   height: 22.7rem;
   margin-bottom: 42px;
 
-  /* Fundo Background */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)),url("../img/background.png");
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  /* Fundo.innerHTML */
+.fundo h1 {
   text-align: center;
   font-weight: 400;
   font-size: 4rem;
-  line-height: 22.7rem;
+  line-height: 45px;
   color: #ffffff;
 }
 
@@ -506,8 +507,12 @@ main {
   color: #000000;
 }
 
-.page33 .forms {
+.page33 #form33 {
   max-width: 600px;
+  width: 100%;
+}
+
+.page33 .forms {
   width: 100%;
   padding: 20px;
   background: #FFFFFF;
@@ -562,9 +567,14 @@ main {
 /* page 3.4*/
 
 .page34 {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.page34 .quizz-look {
+  width: 100%;
 }
 
 .page34 h2 {
@@ -580,35 +590,39 @@ main {
 }
 
 .quizz-look{
-  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .page34 h3 {
   font-family: 'Roboto';
-  width: 309px;
+  width: 400px;
   height: 34px;
-  font-weight: 400;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 2.3rem;
   color: #ffffff;
   position: absolute;
-  bottom: 9px;
-  left: 23px;
 }
 
 .image-quizz{
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   height: 266px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(image.png);
   border-radius: 5px;
   object-fit: cover;
+  position: relative;
 }
 
 .acesso{
-  width: 220px;
+  max-width: 220px;
+  width: 100%;
   height: 44px;
   background-color: #EC362D;
   border-radius: 15px;
-
+  border: none;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -620,7 +634,8 @@ main {
 }
 
 .voltar-home{
-  width: 220px;
+  max-width: 220px;
+  width: 100%;
   height: 44px;
   font-family: 'Roboto';
   font-style: normal;
@@ -630,6 +645,7 @@ main {
   color: #818181;
   margin-top: 9px;
   background-color: #FAFAFA;
+  border: none;
 }
 
 @media (max-width: 400px){
@@ -639,8 +655,22 @@ main {
     padding-top: 30px;
   }
 
+  .page1 .added {
+    position: relative;
+  }
+
+  .page1 .title img {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   .bot {
     margin-top: 35px;
+  }
+
+  .page2 .fundo {
+    height: 142px;
   }
 
   .quizz-caixa {
@@ -648,7 +678,8 @@ main {
   }
 
   .page32  button, .page31 #form31 button {
-    width: 250px;
+    max-width: 250px;
+    width: 100%;
     height: 54px;
     font-size: 1.7rem;
   } 
@@ -677,6 +708,12 @@ main {
   .page32 h2 {
     margin: 30px;
   }
+
+  .page34 {
+    width: 90%;
+    margin: auto;
+  }
+
 }
 
 

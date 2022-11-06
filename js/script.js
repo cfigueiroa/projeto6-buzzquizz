@@ -6,6 +6,17 @@ const page31 = document.querySelector('.page31');
 const page32 = document.querySelector('.page32');
 const page33 = document.querySelector('.page33');
 const page34 = document.querySelector('.page34');
+const container = document.querySelector(".container")
+const form31 = document.getElementById('form31');
+form31.addEventListener('submit', logSubmit31);
+const form33 = document.getElementById('form33');
+const form32 = document.getElementById('form32');
+let obj = { title: "", image: "", questions: [], levels: [] }
+let title = document.getElementById("title");
+let image = document.getElementById("image");
+let questionsQty = document.getElementById("questions-qty");
+let levelsQty = document.getElementById("levels-qty");
+let contador = 0; let acertos = 0;
 let finalResponse, finalObj
 let currentId = 0;
 let currentObj = {};
@@ -95,8 +106,6 @@ function loadQuiz(id) {
 }
 
 //page2
-let contador = 0; let acertos = 0;
-
 function reloadPage() {
     location.reload(true);
 }
@@ -175,15 +184,13 @@ function selecionarCaixa(seletor) {
 
 }
 
-
-
-const container = document.querySelector(".container")
 function criarQuizz() {
     // Alterando o Fundo
     const fundo = document.querySelector(".fundo");
-    fundo.style.backgroundImage = `url("${currentObj.image}")`;
-    fundo.style.backgroundSize = 'cover';
-    fundo.innerHTML = currentObj.title;
+    fundo.style.background = `linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)), url("${currentObj.image}"), center`;
+    fundo.style.backgroundSize = '100% 100%';
+    const h1 = fundo.querySelector("h1");
+    h1.innerHTML = currentObj.title
 
     container.innerHTML = ""
     for (let i = 0; i < currentObj.questions.length; i++) {
@@ -233,17 +240,6 @@ function criarQuizz() {
 
 //page3
 //3.1
-let obj = { title: "", image: "", questions: [], levels: [] }
-
-let title = document.getElementById("title");
-let image = document.getElementById("image");
-let questionsQty = document.getElementById("questions-qty");
-let levelsQty = document.getElementById("levels-qty");
-
-const form31 = document.getElementById('form31');
-form31.addEventListener('submit', logSubmit31);
-
-
 function logSubmit31(event) {
     obj = { title: "", image: "", questions: [], levels: [] }
     //build objtit
@@ -271,8 +267,6 @@ function changePage(origin, dest) {
 }
 
 //3.2
-const form32 = document.getElementById('form32');
-
 function buildForm32() {
     for (let i = 0; i < obj.questions.length; i++) {
         const pergunta = `
@@ -332,8 +326,6 @@ function logSubmit32(event) {
 }
 
 //3.3
-const form33 = document.getElementById('form33');
-
 function buildForm33() {
     for (let i = 0; i < obj.levels.length; i++) {
         const level = `
