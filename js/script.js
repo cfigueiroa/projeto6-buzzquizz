@@ -1,5 +1,4 @@
-const api = 'https://mock-api.driven.com.br/api/v3/buzzquizz/quizzes/';
-// const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
+const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 const page1 = document.querySelector('.page1');
 const page2 = document.querySelector('.page2');
 const page3 = document.querySelector('.page3');
@@ -247,7 +246,7 @@ form31.addEventListener('submit', logSubmit31);
 
 function logSubmit31(event) {
     obj = { title: "", image: "", questions: [], levels: [] }
-    //build obj
+    //build objtit
     obj.title = event.srcElement[0].value
     obj.image = event.srcElement[1].value
     for (let i = 0; i < event.srcElement[2].value; i++) {
@@ -277,8 +276,10 @@ const form32 = document.getElementById('form32');
 function buildForm32() {
     for (let i = 0; i < obj.questions.length; i++) {
         const pergunta = `
-        <div class="forms">
+        <div class="forms forms${i}" onclick="mostrarFoms(this)">
         <h3>Pergunta ${i + 1}</h3>
+        <img class="vector" src="../img/Vector.png">
+        <div class="hidden inputs"> 
         <input type="text" name="" id="q${i}title" placeholder="Texto da pergunta" minlength="20" required><br>
         <input type="text" name="" id="q${i}color" placeholder="Cor de fundo da pergunta" pattern="#([0-9]|[A-F]|[a-f]){6}" required><br>
         <h3>Resposta correta</h3>
@@ -292,11 +293,23 @@ function buildForm32() {
         <input type="text" name="" id="q${i}ansText3" placeholder="Resposta incorreta 3"><br>
         <input type="url" name="" id="q${i}ansUrl3" placeholder="URL da imagem 3" class="id3"><br>
         </div>
+        </div>
         `
         form32.insertAdjacentHTML('beforeend', pergunta);
     }
     form32.insertAdjacentHTML('beforeend', '<button>Prosseguir pra criar níveis</button>');
     form32.addEventListener('submit', logSubmit32);
+    setTimeout(removerHidden, 0)
+}
+
+function removerHidden(){
+    const a = document.querySelector(".forms0");
+    a.querySelector(".inputs").classList.remove("hidden")
+    a.querySelector(".vectorImg").classList.add("desaparecer")
+}
+
+function mostrarFoms(seletor){
+    seletor.querySelector(".inputs").classList.remove("hidden")
 }
 
 function logSubmit32(event) {

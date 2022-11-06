@@ -1,18 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-:root {
-}
-
 * {
   box-sizing: border-box;
 }
 
 html {
+  font-size: 62.5%;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   background-color: #fafafa;
+  font-size: 1.6rem;
 }
 
 header {
@@ -25,15 +24,17 @@ header {
   width: 100%;
   font-weight: 700;
   font-size: 37px;
-  line-height: 69px;
+  line-height: 6.9rem;
   color: #ffffff;
   text-align: center;
 }
 
 main {
+  margin: auto;
   margin-top: 69px;
+  max-width: 1051px;
+  width: 95%;
 }
-
 
 /* page1 */
 .page1 {
@@ -45,17 +46,15 @@ main {
 }
 
 .page1 .top {
-  margin: 0 auto;
-  max-width: 1051px;
   width: 100%;
 }
 
 .page1 .added {
-  width: 1051px;
+  width: 100%;
 }
 
 .page1 .empty {
-  width: 1051px;
+  width: 100%;
   height: 181px;
 }
 
@@ -71,8 +70,8 @@ main {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 2rem;
+  line-height: 2.3rem;
   display: flex;
   align-items: center;
   text-align: center;
@@ -83,8 +82,8 @@ main {
   display: block;
   margin: 0 auto;
   color: #ec362d;
-  font-size: 21px;
-  line-height: 25px;
+  font-size: 2rem;
+  line-height: 2.5rem;
   width: 151px;
   height: 40px;
   background-color: #fafafa;
@@ -93,21 +92,22 @@ main {
 }
 
 .page1 .bot {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   margin-top: 48px;
-  width: 1051px;
-  /* height: 409px; */
+  width: 100%;
 }
 
-.page1 h2 {
+.page1 h2 { 
   font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 2rem;
+  line-height: 3rem;
   color: #000000;
 }
 
 .cards {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 12px 15px;
 }
@@ -124,18 +124,22 @@ main {
     url(../img/sloth.png);
   border-radius: 5px;
   display: flex;
+  justify-content: center;
   align-items: flex-end;
 }
 
 .card p {
-  width: 100%;
-  height: 54px;
-  display: flex;
-  font-size: 19px;
-  line-height: 22px;
+  max-width: 340px;
+  width: 90%;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.2rem;
   color: #ffffff;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title {
@@ -151,7 +155,7 @@ main {
 
 .fundo {
   width: 100%;
-  height: 227px;
+  height: 22.7rem;
   margin-bottom: 42px;
 
   /* Fundo Background */
@@ -162,8 +166,8 @@ main {
   /* Fundo.innerHTML */
   text-align: center;
   font-weight: 400;
-  font-size: 39px;
-  line-height: 227px;
+  font-size: 4rem;
+  line-height: 22.7rem;
   color: #ffffff;
 }
 
@@ -183,15 +187,15 @@ main {
 
 .titulo-quizz {
   width: 100%;
-  height: 138px;  
+  height: 13.8rem;  
   background: #434ca0;
   margin-bottom: 20px;
 
   /* titulo-quizz.innerHTML */
   text-align: center;
   font-weight: 700;
-  font-size: 23px;
-  line-height: 138px;
+  font-size: 2.3rem;
+  line-height: 13.8rem;
   color: #ffffff;
 }
 
@@ -208,8 +212,8 @@ main {
 }
 
 .caixa .img {
-  width: 335px;
-  height: 175px;
+  width: 33.5rem;
+  height: 17.5rem;
   margin-bottom: 8px;
   background-image: url(../img/gatinho.png);
   background-size: 100%;
@@ -219,8 +223,8 @@ main {
   max-width: 335px;
   width: 100%;
   font-weight: 700;
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 2rem;
+  line-height: 2.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -259,8 +263,8 @@ main {
   background-color: #ec362d;
   text-align: center;
   font-weight: 700;
-  font-size: 23px;
-  line-height: 100px;
+  font-size: 2.3rem;
+  line-height: 10rem;
   color: #FFFFFF;
   margin-bottom: 20px;
 }
@@ -284,9 +288,11 @@ main {
 
 .paragrafo-final p {
   font-weight: 700;
-  font-size: 19px;
-  line-height: 25px;
+  font-size: 2rem;
+  line-height: 2.5rem;
   color: #484848;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .button-final {
@@ -302,8 +308,8 @@ main {
   border-radius: 15px;
   border: none;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 50px;
+  font-size: 2rem;
+  line-height: 5rem;
   color: #FFF5F4;
 }
 
@@ -319,8 +325,8 @@ main {
   border: none;
   background-color: #fafafa;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 45px;
+  font-size: 2rem;
+  line-height: 4.5rem;
   color: #818181;
 }
 
@@ -336,13 +342,14 @@ main {
   margin-top: 72px;
   margin-bottom: 27px;
   font-weight: 700;
-  font-size: 23px;
-  line-height: 27px;
+  font-size: 2.3rem;
+  line-height: 2.7rem;
   color: #000000;
 }
 
 .page31 #form31 {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   height: 256px;
   padding: 20px 15px;
   background: #FFFFFF;
@@ -361,8 +368,8 @@ main {
 .page31 #form31 input::placeholder {
   font-style: italic;
   font-weight: 400;
-  font-size: 19px;
-  line-height: 22px;
+  font-size: 2rem;
+  line-height: 2.2rem;
   color: #BABABA;
 }
 
@@ -376,12 +383,20 @@ main {
   bottom: -40%;
   left: calc(50% - 370px/2);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 25px;
+  font-size: 2rem;
+  line-height: 2.5rem;
   color: #FFF5F4;
 }
 
 .page32 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page32 #form32 {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -393,17 +408,29 @@ main {
   margin-top: 65px;
   margin-bottom: 36px;
   font-weight: 700;
-  font-size: 23px;
-  line-height: 27px;
+  font-size: 2.3rem;
+  line-height: 2.7rem;
   color: #000000;
 }
 
 .page32 .forms {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   padding: 20px;
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 25px;
+  position: relative;
+}
+
+.vector {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.desaparecer {
+  opacity: 0;
 }
 
 .page32 #form32 input {
@@ -420,15 +447,15 @@ main {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
-  font-size: 19px;
-  line-height: 22px;
+  font-size: 2rem;
+  line-height: 2.2rem;
   color: #BABABA;
 }
 
 .page32 #form32 h3 {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 2rem;
+  line-height: 2.3rem;
   color: #000000;
   margin-top: 7px;
   margin-bottom: 12px;
@@ -449,18 +476,18 @@ main {
   border-radius: 15px;
   border: none;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 25px;
+  font-size: 2rem;
+  line-height: 2.5rem;
   color: #FFF5F4;
   margin: 0px calc(50% - 355px/2);
   margin-top: 65px;
   margin-bottom: 80px;
-
 }
 
 /*page 33*/
 
 .page33 {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -472,13 +499,14 @@ main {
   margin-top: 65px;
   margin-bottom: 36px;
   font-weight: 700;
-  font-size: 23px;
-  line-height: 27px;
+  font-size: 2.3rem;
+  line-height: 2.7rem;
   color: #000000;
 }
 
 .page33 .forms {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   padding: 20px;
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
@@ -499,15 +527,15 @@ main {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
-  font-size: 19px;
-  line-height: 22px;
+  font-size: 2rem;
+  line-height: 2.2rem;
   color: #BABABA;
 }
 
 .page33 #form33 h3 {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 2rem;
+  line-height: 2.3rem;
   color: #000000;
   margin-top: 7px;
   margin-bottom: 12px;
@@ -520,8 +548,8 @@ main {
   border-radius: 15px;
   border: none;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 25px;
+  font-size: 2rem;
+  line-height: 2.5rem;
   color: #FFF5F4;
   margin: 0px calc(50% - 355px/2);
   margin-top: 65px;
@@ -544,8 +572,8 @@ main {
   margin-top: 65px;
   margin-bottom: 36px;
   font-weight: 700;
-  font-size: 23px;
-  line-height: 27px;
+  font-size: 2.3rem;
+  line-height: 2.7rem;
   color: #000000;
 }
 
@@ -558,7 +586,7 @@ main {
   width: 309px;
   height: 34px;
   font-weight: 400;
-  font-size: 23px;
+  font-size: 2.3rem;
   color: #ffffff;
   position: absolute;
   bottom: 9px;
@@ -582,7 +610,7 @@ main {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 21px;
+  font-size: 2rem;
   text-align: center;
   color: #FFF5F4;
   margin-top: 45px;
@@ -595,11 +623,49 @@ main {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 21px;
+  font-size: 2.3rem;
   text-align: center;
   color: #818181;
   margin-top: 9px;
   background-color: #FAFAFA;
+}
+
+@media (max-width: 375px){
+
+  
+  main {
+    width: 100%;
+  }
+  .quizz-caixa {
+    padding: 20px;
+  }
+
+  .page32  button, .page31 #form31 button {
+    width: 250px;
+    height: 54px;
+    font-size: 1.7rem;
+  } 
+
+  .page31 #form31 button {
+    left: calc(50% - 250px/2);
+  }
+
+  .conteudo-final {
+    flex-direction: column;
+  }
+
+  .caixa .img {
+    width: 16.3rem;
+    height: 11.3rem;
+  }
+
+  .conteudo-final .img-final, .paragrafo-final{
+    width: 34rem;
+  }
+
+  .caixa p {
+    width: 16.3rem;
+  }
 }
 
 
