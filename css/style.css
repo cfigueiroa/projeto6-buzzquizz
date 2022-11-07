@@ -664,7 +664,16 @@ main {
   border: none;
 }
 
+.cards-top {
+  justify-content: flex-start;
+}
+
 @media (max-width: 450px){
+
+  .cards-top {
+    justify-content: center;
+  }
+
   .page1 {
     width: 90%;
     margin: auto;

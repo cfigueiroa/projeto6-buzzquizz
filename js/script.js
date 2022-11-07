@@ -92,6 +92,8 @@ function loadQuizzes() {
 }
 
 function loadQuiz(id) {
+    contador = 0;
+    acertos = 0;
     currentId = id;
     if (id !== 0) {
         axios.get(api + id)
