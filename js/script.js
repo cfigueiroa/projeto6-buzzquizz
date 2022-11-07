@@ -1,4 +1,4 @@
-const api = 'https://mock-api.driven.com.br/api/v3/buzzquizz/quizzes/';
+const api = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 const page1 = document.querySelector('.page1');
 const page2 = document.querySelector('.page2');
 const page3 = document.querySelector('.page3');
